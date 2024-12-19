@@ -1,7 +1,7 @@
 ---
 title: Nacos配置中心并支持多配置文件
 date: '2024-12-19 09:59:49'
-updated: '2024-12-20 00:09:19'
+updated: '2024-12-20 00:12:14'
 permalink: >-
   /post/nacos-configuration-center-and-support-multi-configuration-files-zi2mmf.html
 comments: true
@@ -10,13 +10,7 @@ toc: true
 
 # Nacos配置中心并支持多配置文件
 
----
-
-title: Nacos配置中心支持多配置文件
-
----
-
-一、引入依赖包
+### 一、引入依赖包
 
 ---
 
@@ -38,7 +32,7 @@ title: Nacos配置中心支持多配置文件
 > 1. config，引入这个配置中心的依赖后，需要使用bootstrap.yml作为中转配置文件，读取的优先级为bootstrap.yml>application.yml
 > 2. 配置中心地址结尾不能带斜杠 否者会报异常
 
-二、单文件配置
+### 二、单文件配置
 
 ---
 
