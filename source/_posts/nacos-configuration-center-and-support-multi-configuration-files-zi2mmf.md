@@ -1,7 +1,7 @@
 ---
 title: Nacos配置中心并支持多配置文件
 date: '2024-12-19 09:59:49'
-updated: '2024-12-20 00:08:01'
+updated: '2024-12-20 00:09:19'
 permalink: >-
   /post/nacos-configuration-center-and-support-multi-configuration-files-zi2mmf.html
 comments: true
