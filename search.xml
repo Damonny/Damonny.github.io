@@ -183,6 +183,200 @@
 ]]></content>
   </entry>
   <entry>
+    <title>Nginx配置TCP代理指南</title>
+    <url>//post/nginx-configuration-tcp-agency-guide-kqsal.html</url>
+    <content><![CDATA[<h1 id="Nginx配置TCP代理指南"><a href="#Nginx配置TCP代理指南" class="headerlink" title="Nginx配置TCP代理指南"></a>Nginx配置TCP代理指南</h1><h1 id="Nginx配置TCP代理指南-1"><a href="#Nginx配置TCP代理指南-1" class="headerlink" title="Nginx配置TCP代理指南"></a>Nginx配置TCP代理指南</h1><p>使用Nginx作为TCP代理是一种有效的方式，可以实现高性能的负载均衡和反向代理。本篇指南将介绍如何配置Nginx以用作TCP代理。</p>
+<h2 id="步骤1：安装Nginx"><a href="#步骤1：安装Nginx" class="headerlink" title="步骤1：安装Nginx"></a>步骤1：安装Nginx</h2><hr>
+<p>首先，确保您的系统已经安装了Nginx。您可以从Nginx官方网站或适用于您的操作系统的软件包管理器中获取Nginx。</p>
+<h2 id="步骤2：编辑Nginx配置文件"><a href="#步骤2：编辑Nginx配置文件" class="headerlink" title="步骤2：编辑Nginx配置文件"></a>步骤2：编辑Nginx配置文件</h2><hr>
+<p>默认情况下，Nginx的主配置文件位于&#x2F;etc&#x2F;nginx&#x2F;nginx.conf。在继续之前，请备份此文件，并确保具有root权限。</p>
+<p>使用文本编辑器打开nginx.conf文件，并进行以下配置更改：</p>
+<ul>
+<li>在http块之后，添加一个新的stream块：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">stream &#123;</span><br><span class="line">    # 配置项添加在这里</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在stream块内，添加upstream和server配置。例如，以下配置将将请求转发到两个后端服务器，端口分别为192.168.1.10:8080和192.168.1.11:8080：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">stream &#123;</span><br><span class="line">    upstream my_backend_servers &#123;</span><br><span class="line">        server 192.168.1.10:8080;</span><br><span class="line">        server 192.168.1.11:8080;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    server &#123;</span><br><span class="line">        listen 80;</span><br><span class="line">        proxy_pass my_backend_servers;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>根据您的需求，可以根据需要添加更多的upstream和server块。</li>
+</ul>
+<h2 id="步骤3：重新加载配置"><a href="#步骤3：重新加载配置" class="headerlink" title="步骤3：重新加载配置"></a>步骤3：重新加载配置</h2><hr>
+<p>保存并关闭配置文件后，使用以下命令重新加载Nginx配置：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo nginx -s reload</span><br></pre></td></tr></table></figure>
+
+<h2 id="步骤4：验证代理设置"><a href="#步骤4：验证代理设置" class="headerlink" title="步骤4：验证代理设置"></a>步骤4：验证代理设置</h2><hr>
+<p>现在，您的Nginx已配置为TCP代理。您可以使用telnet工具或其他任何适合您需求的工具来验证代理是否正常工作。</p>
+<p>例如，您可以使用以下命令将请求发送到Nginx代理服务器：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">telnet localhost 80</span><br></pre></td></tr></table></figure>
+
+<p>根据您的实际配置，您可能需要更改”localhost”为相应的IP地址和端口号。</p>
+<h2 id="步骤5：监控和调整配置"><a href="#步骤5：监控和调整配置" class="headerlink" title="步骤5：监控和调整配置"></a>步骤5：监控和调整配置</h2><hr>
+<p>建议您定期监控Nginx的性能，并根据负载情况进行必要的调整。您可以使用Nginx的日志文件、监控工具和系统性能工具来跟踪Nginx的表现并作出相应的改进。</p>
+<p>这就是使用Nginx作为TCP代理的简单指南。通过按照上述步骤，在您的环境中配置Nginx，您可以实现高效的TCP代理服务。</p>
+]]></content>
+      <categories>
+        <category>网络配置</category>
+        <category>性能监控</category>
+        <category>负载均衡</category>
+      </categories>
+      <tags>
+        <tag>nginx</tag>
+        <tag>tcp代理</tag>
+        <tag>配置指南</tag>
+        <tag>负载均衡</tag>
+        <tag>性能监控</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>nginx安装部署</title>
+    <url>//post/nginx-installation-deployment-z1jtjzq.html</url>
+    <content><![CDATA[<h1 id="nginx安装部署"><a href="#nginx安装部署" class="headerlink" title="nginx安装部署"></a>nginx安装部署</h1><h1 id="nginx安装部署-1"><a href="#nginx安装部署-1" class="headerlink" title="nginx安装部署"></a>nginx安装部署</h1><h2 id="docker部署"><a href="#docker部署" class="headerlink" title="docker部署"></a>docker部署</h2><hr>
+<p><strong>docker-compose.yml</strong></p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&#x27;3&#x27;</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">nginx:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">nginx:1.23.1</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="number">443</span><span class="string">:443</span></span><br><span class="line">    <span class="bullet">-</span> <span class="number">80</span><span class="string">:80</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="attr">TZ:</span> <span class="string">Asia/Shanghai</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">./conf.d:/etc/nginx/conf.d:Z</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">./nginx.conf:/etc/nginx/nginx.conf:ro</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">./ssl:/etc/nginx/ssl_key:Z</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">./logs:/var/log/nginx:Z</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">./html:/etc/nginx/html:Z</span></span><br><span class="line">    <span class="attr">command:</span> [<span class="string">nginx-debug</span>,<span class="string">&#x27;-g&#x27;</span>,<span class="string">&#x27;daemon off;&#x27;</span>]</span><br></pre></td></tr></table></figure>
+
+<p>文件夹规划 nginx</p>
+<p>|-conf.d #文件夹，用于存放server的配置#​</p>
+<p>|-ssl.conf ## https配置文件</p>
+<p>|-docker-compose.yaml ## 主的docker-compose配置文件</p>
+<p>|-html ## 作为前端服务器用于存放前端文件</p>
+<p>|-logs ## 日志文件信息</p>
+<p>|-nginx.conf ## nginx主的配置文件，通用的http配置都放在这里</p>
+<p>|-ssl ## crt key的存放地址</p>
+<h2 id="源码部署"><a href="#源码部署" class="headerlink" title="源码部署"></a>源码部署</h2><hr>
+<h3 id="依赖安装"><a href="#依赖安装" class="headerlink" title="依赖安装"></a>依赖安装</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum -y install openssl openssl-devel make zlib zlib-devel gcc gcc-c++ libtool    pcre pcre-devel</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建没有登录的用户和用户组"><a href="#创建没有登录的用户和用户组" class="headerlink" title="创建没有登录的用户和用户组"></a>创建没有登录的用户和用户组</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">groupadd -r nginx</span><br><span class="line"></span><br><span class="line">useradd -r -g nginx -s /sbin/nologin -d /usr/local/nginx -M nginx</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>-r: 添加系统用户( 这里指将要被创建的系统用户<code>nginx</code>)</li>
+<li>-g: 指定要创建的用户所属组( 这里指添加新系统用户<code>nginx</code>到<code>nginx</code>系统用户组 )</li>
+<li>-s: 新帐户的登录<code>shell</code>( <code>/sbin/nologin</code> 这里设置为将要被创建系统用户<code>nginx</code>不能用来登录系统 )</li>
+<li>-d: 新帐户的主目录( 这里指定将要被创建的系统用户<code>nginx</code>的家目录为 <code>/usr/local/nginx</code> )</li>
+<li>-M: 不要创建用户的主目录( 也就是说将要被创建的系统用户<code>nginx</code>不会在 <code>/home</code> 目录下创建 <code>nginx</code> 家目录 )</li>
+</ul>
+<h3 id="源码安装nginx"><a href="#源码安装nginx" class="headerlink" title="源码安装nginx"></a>源码安装nginx</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wget http://nginx.org/download/nginx-1.23.1.tar.gz</span><br><span class="line">tar -zvxf nginx-1.23.1.tar.gz -C ./nginx</span><br><span class="line">cd nginx/nginx-1.23.1</span><br><span class="line">./configure --prefix=/usr/local/nginx --user=nginx --group=nginx --with-http_ssl_module --with-http_stub_status_module </span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看内置模块"><a href="#查看内置模块" class="headerlink" title="查看内置模块"></a>查看内置模块</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cat ./auto/options |grep YES</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看自定义模块"><a href="#查看自定义模块" class="headerlink" title="查看自定义模块"></a>查看自定义模块</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">nginx -V</span><br></pre></td></tr></table></figure>
+
+<h3 id="操作命令"><a href="#操作命令" class="headerlink" title="操作命令"></a>操作命令</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/local/nginx/sbin</span><br><span class="line">nginx -c nginx.conf  <span class="comment"># 启动</span></span><br><span class="line">nginx -s stop  <span class="comment"># 关闭</span></span><br><span class="line">nginx -s reload <span class="comment"># 重新加载配置</span></span><br><span class="line">nginx -s quit <span class="comment"># 重启，先停止在启动</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="开机自启动"><a href="#开机自启动" class="headerlink" title="开机自启动"></a>开机自启动</h3><p>在<code>rc.local</code>增加启动代码即可</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vi /etc/rc.local</span><br><span class="line"> /usr/local/nignx/sbin/nginx  -c /usr/local/nginx/conf/nginx.conf</span><br></pre></td></tr></table></figure>
+
+<p>设置rc.local的文件执行权限</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">chmod</span> 755 rc.local</span><br></pre></td></tr></table></figure>
+
+<h2 id="包管理工具安装"><a href="#包管理工具安装" class="headerlink" title="包管理工具安装"></a>包管理工具安装</h2><p>安装 Nginx 可以使用多种包管理工具，具体取决于你的操作系统。以下是常见操作系统的安装方法:</p>
+<hr>
+<h3 id="1-在-Ubuntu-Debian-上安装-Nginx"><a href="#1-在-Ubuntu-Debian-上安装-Nginx" class="headerlink" title="1. 在 Ubuntu&#x2F;Debian 上安装 Nginx"></a><strong>1. 在 Ubuntu&#x2F;Debian 上安装 Nginx</strong></h3><h4 id="使用-apt​-包管理工具："><a href="#使用-apt​-包管理工具：" class="headerlink" title="使用 apt​ 包管理工具："></a>使用 <code>apt</code>​ 包管理工具：</h4><ol>
+<li><p><strong>更新包列表</strong>：</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt update</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>安装 Nginx</strong>：</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt install nginx</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>启动 Nginx 服务</strong>：</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> systemctl start nginx</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>设置 Nginx 开机自启动</strong>：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo systemctl enable nginx</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>验证安装</strong>：<br> 打开浏览器，访问 <code>http://localhost</code>​，如果看到 Nginx 的欢迎页面，说明安装成功。</p>
+</li>
+</ol>
+<hr>
+<h3 id="2-在-CentOS-RHEL-上安装-Nginx"><a href="#2-在-CentOS-RHEL-上安装-Nginx" class="headerlink" title="2. 在 CentOS&#x2F;RHEL 上安装 Nginx"></a><strong>2. 在 CentOS&#x2F;RHEL 上安装 Nginx</strong></h3><h4 id="使用-yum​-或-dnf​-包管理工具："><a href="#使用-yum​-或-dnf​-包管理工具：" class="headerlink" title="使用 yum​ 或 dnf​ 包管理工具："></a>使用 <code>yum</code>​ 或 <code>dnf</code>​ 包管理工具：</h4><ol>
+<li><p><strong>添加 Nginx 官方仓库</strong>：<br> 创建一个文件 <code>/etc/yum.repos.d/nginx.repo</code>​，并添加以下内容：</p>
+ <figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="section">[nginx]</span><span class="attr">name</span>=nginx repobaseurl=http://nginx.org/packages/centos/<span class="variable">$releasever</span>/<span class="variable">$basearch</span>/gpgcheck=<span class="number">0</span>enabled=<span class="number">1</span></span><br></pre></td></tr></table></figure></li>
+<li><p><strong>安装 Nginx</strong>：</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> yum install nginx</span><br></pre></td></tr></table></figure>
+
+<p> 或者使用 <code>dnf</code>​（适用于 CentOS 8+）：</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> dnf install nginx</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>启动 Nginx 服务</strong>：</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> systemctl start nginx</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>设置 Nginx 开机自启动</strong>：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo systemctl enable nginx</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>验证安装</strong>：<br> 打开浏览器，访问 <code>http://&lt;服务器IP&gt;</code>​，如果看到 Nginx 的欢迎页面，说明安装成功。</p>
+</li>
+</ol>
+<hr>
+<h3 id="3-在-macOS-上安装-Nginx"><a href="#3-在-macOS-上安装-Nginx" class="headerlink" title="3. 在 macOS 上安装 Nginx"></a><strong>3. 在 macOS 上安装 Nginx</strong></h3><h4 id="使用-Homebrew​-包管理工具："><a href="#使用-Homebrew​-包管理工具：" class="headerlink" title="使用 Homebrew​ 包管理工具："></a>使用 <code>Homebrew</code>​ 包管理工具：</h4><ol>
+<li><p><strong>安装 Homebrew</strong>（如果尚未安装）：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>安装 Nginx</strong>：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">brew install nginx</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>启动 Nginx 服务</strong>：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">brew services start nginx</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>验证安装</strong>：<br> 打开浏览器，访问 <code>http://localhost:8080</code>​，如果看到 Nginx 的欢迎页面，说明安装成功。</p>
+</li>
+</ol>
+<hr>
+<h3 id="4-在-Windows-上安装-Nginx"><a href="#4-在-Windows-上安装-Nginx" class="headerlink" title="4. 在 Windows 上安装 Nginx"></a><strong>4. 在 Windows 上安装 Nginx</strong></h3><p>Windows 上没有直接的包管理工具安装 Nginx，但可以通过以下方式安装：</p>
+<ol>
+<li><p><strong>下载 Nginx</strong>：<br> 访问 <a href="http://nginx.org/en/download.html">Nginx 官方网站</a>，下载适合 Windows 的版本。</p>
+</li>
+<li><p><strong>解压并运行</strong>：</p>
+<ul>
+<li><p>将下载的压缩包解压到一个目录（例如 <code>C:\nginx</code>​）。</p>
+</li>
+<li><p>打开命令提示符，进入解压后的目录：</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> C:\nginx</span><br></pre></td></tr></table></figure></li>
+<li><p>启动 Nginx：</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="built_in">start</span> nginx</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p><strong>验证安装</strong>：<br> 打开浏览器，访问 <code>http://localhost</code>​，如果看到 Nginx 的欢迎页面，说明安装成功。</p>
+</li>
+</ol>
+<hr>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><table>
+<thead>
+<tr>
+<th>操作系统</th>
+<th>包管理工具</th>
+<th>安装命令</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Ubuntu&#x2F;Debian</td>
+<td>​<code>apt</code>​</td>
+<td>​<code>sudo apt install nginx</code>​</td>
+</tr>
+<tr>
+<td>CentOS&#x2F;RHEL</td>
+<td>​<code>yum/dnf</code>​</td>
+<td>​<code>sudo yum install nginx</code>​</td>
+</tr>
+<tr>
+<td>macOS</td>
+<td>​<code>Homebrew</code>​</td>
+<td>​<code>brew install nginx</code>​</td>
+</tr>
+<tr>
+<td>Windows</td>
+<td>手动安装</td>
+<td>下载并解压 Nginx 压缩包</td>
+</tr>
+</tbody></table>
+<p>根据你的操作系统选择合适的安装方法即可。</p>
+]]></content>
+      <categories>
+        <category>部署指南</category>
+        <category>安装教程</category>
+        <category>配置管理</category>
+      </categories>
+      <tags>
+        <tag>nginx</tag>
+        <tag>docker</tag>
+        <tag>源码部署</tag>
+        <tag>包管理</tag>
+        <tag>开机自启</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>is-a 、have-a、和 like-a 的区别</title>
     <url>//post/the-difference-between-isa-havea-and-likea-1u8avc.html</url>
     <content><![CDATA[<h1 id="is-a-、have-a、和-like-a-的区别"><a href="#is-a-、have-a、和-like-a-的区别" class="headerlink" title="is-a 、have-a、和 like-a 的区别"></a>is-a 、have-a、和 like-a 的区别</h1><h3 id="1、is-a，has-a，like-a-是什么"><a href="#1、is-a，has-a，like-a-是什么" class="headerlink" title="1、is-a，has-a，like-a 是什么"></a>1、is-a，has-a，like-a 是什么</h3><p>在面向对象设计的领域里，有若干种设计思路，主要有如下三种：<br>is-a、has-a、like-a<br>java 中在类、接口、抽象类中有很多体现。<br>了解 java 看这里：<a href="http://blog.csdn.net/ooppookid/article/details/51931003">什么是 Java</a><br>了解类和对象看这里：<a href="http://blog.csdn.net/ooppookid/article/details/51161448">类、对象到底有什么秘密</a><br>了解接口和抽象类看这里：<a href="http://blog.csdn.net/ooppookid/article/details/51173179">接口和抽象类有什么区别</a></p>
