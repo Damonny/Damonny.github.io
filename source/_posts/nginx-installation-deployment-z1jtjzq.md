@@ -2,6 +2,18 @@
 title: nginx安装部署
 date: '2024-12-19 09:56:33'
 updated: '2024-12-20 09:30:32'
+excerpt: >-
+  本文介绍了Nginx的安装部署方法，包括Docker部署、源码部署和包管理工具安装三种方式。Docker部署部分提供了docker-compose.yml配置文件，用于设置Nginx容器的端口映射、环境变量、卷挂载等。源码部署部分详细说明了依赖安装、创建用户和组、编译安装Nginx的步骤，并提供了查看模块和操作命令的方法。包管理工具安装部分则分别介绍了在Ubuntu/Debian和CentOS/RHEL系统上使用apt和yum/dnf安装Nginx的步骤，包括添加仓库、安装、启动服务和设置开机自启动等。
+tags:
+  - nginx
+  - docker
+  - 源码部署
+  - 包管理
+  - 开机自启
+categories:
+  - 部署指南
+  - 安装教程
+  - 配置管理
 permalink: /post/nginx-installation-deployment-z1jtjzq.html
 comments: true
 toc: true
@@ -122,3 +134,133 @@ vi /etc/rc.local
 ```bash
 chmod 755 rc.local
 ```
+
+## 包管理工具安装
+
+安装 Nginx 可以使用多种包管理工具，具体取决于你的操作系统。以下是常见操作系统的安装方法:
+
+---
+
+### **1. 在 Ubuntu/Debian 上安装 Nginx**
+
+#### 使用 `apt`​ 包管理工具：
+
+1. **更新包列表**：
+
+    ```bash
+    sudo apt update
+    ```
+2. **安装 Nginx**：
+
+    ```bash
+    sudo apt install nginx
+    ```
+3. **启动 Nginx 服务**：
+
+    ```bash
+    sudo systemctl start nginx
+    ```
+4. **设置 Nginx 开机自启动**：
+
+    ```
+    sudo systemctl enable nginx
+    ```
+5. **验证安装**：  
+    打开浏览器，访问 `http://localhost`​，如果看到 Nginx 的欢迎页面，说明安装成功。
+
+---
+
+### **2. 在 CentOS/RHEL 上安装 Nginx**
+
+#### 使用 `yum`​ 或 `dnf`​ 包管理工具：
+
+1. **添加 Nginx 官方仓库**：  
+    创建一个文件 `/etc/yum.repos.d/nginx.repo`​，并添加以下内容：
+
+    ```ini
+    [nginx]name=nginx repobaseurl=http://nginx.org/packages/centos/$releasever/$basearch/gpgcheck=0enabled=1
+    ```
+2. **安装 Nginx**：
+
+    ```bash
+    sudo yum install nginx
+    ```
+
+    或者使用 `dnf`​（适用于 CentOS 8+）：
+
+    ```bash
+    sudo dnf install nginx
+    ```
+3. **启动 Nginx 服务**：
+
+    ```bash
+    sudo systemctl start nginx
+    ```
+4. **设置 Nginx 开机自启动**：
+
+    ```
+    sudo systemctl enable nginx
+    ```
+5. **验证安装**：  
+    打开浏览器，访问 `http://<服务器IP>`​，如果看到 Nginx 的欢迎页面，说明安装成功。
+
+---
+
+### **3. 在 macOS 上安装 Nginx**
+
+#### 使用 `Homebrew`​ 包管理工具：
+
+1. **安装 Homebrew**（如果尚未安装）：
+
+    ```
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    ```
+2. **安装 Nginx**：
+
+    ```
+    brew install nginx
+    ```
+3. **启动 Nginx 服务**：
+
+    ```
+    brew services start nginx
+    ```
+4. **验证安装**：  
+    打开浏览器，访问 `http://localhost:8080`​，如果看到 Nginx 的欢迎页面，说明安装成功。
+
+---
+
+### **4. 在 Windows 上安装 Nginx**
+
+Windows 上没有直接的包管理工具安装 Nginx，但可以通过以下方式安装：
+
+1. **下载 Nginx**：  
+    访问 [Nginx 官方网站](http://nginx.org/en/download.html)，下载适合 Windows 的版本。
+2. **解压并运行**：
+
+    * 将下载的压缩包解压到一个目录（例如 `C:\nginx`​）。
+    * 打开命令提示符，进入解压后的目录：
+
+      ```cmd
+      cd C:\nginx
+      ```
+    * 启动 Nginx：
+
+      ```cmd
+      start nginx
+      ```
+3. **验证安装**：  
+    打开浏览器，访问 `http://localhost`​，如果看到 Nginx 的欢迎页面，说明安装成功。
+
+---
+
+### 总结
+
+|操作系统|包管理工具|安装命令|
+| ---------------| ------------| -------------------------|
+|Ubuntu/Debian|​`apt`​|​`sudo apt install nginx`​|
+|CentOS/RHEL|​`yum/dnf`​|​`sudo yum install nginx`​|
+|macOS|​`Homebrew`​|​`brew install nginx`​|
+|Windows|手动安装|下载并解压 Nginx 压缩包|
+
+根据你的操作系统选择合适的安装方法即可。
