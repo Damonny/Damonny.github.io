@@ -1,7 +1,7 @@
 ---
 title: Nginx配置TCP代理指南
 date: '2024-12-19 09:56:33'
-updated: '2024-12-20 09:32:58'
+updated: '2024-12-20 14:29:51'
 permalink: /post/nginx-configuration-tcp-agency-guide-kqsal.html
 comments: true
 toc: true
