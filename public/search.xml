@@ -183,55 +183,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>Nginx配置TCP代理指南</title>
-    <url>//post/nginx-configuration-tcp-agency-guide-kqsal.html</url>
-    <content><![CDATA[<h1 id="Nginx配置TCP代理指南"><a href="#Nginx配置TCP代理指南" class="headerlink" title="Nginx配置TCP代理指南"></a>Nginx配置TCP代理指南</h1><h1 id="Nginx配置TCP代理指南-1"><a href="#Nginx配置TCP代理指南-1" class="headerlink" title="Nginx配置TCP代理指南"></a>Nginx配置TCP代理指南</h1><p>使用Nginx作为TCP代理是一种有效的方式，可以实现高性能的负载均衡和反向代理。本篇指南将介绍如何配置Nginx以用作TCP代理。</p>
-<h2 id="步骤1：安装Nginx"><a href="#步骤1：安装Nginx" class="headerlink" title="步骤1：安装Nginx"></a>步骤1：安装Nginx</h2><hr>
-<p>首先，确保您的系统已经安装了Nginx。您可以从Nginx官方网站或适用于您的操作系统的软件包管理器中获取Nginx。</p>
-<h2 id="步骤2：编辑Nginx配置文件"><a href="#步骤2：编辑Nginx配置文件" class="headerlink" title="步骤2：编辑Nginx配置文件"></a>步骤2：编辑Nginx配置文件</h2><hr>
-<p>默认情况下，Nginx的主配置文件位于&#x2F;etc&#x2F;nginx&#x2F;nginx.conf。在继续之前，请备份此文件，并确保具有root权限。</p>
-<p>使用文本编辑器打开nginx.conf文件，并进行以下配置更改：</p>
-<ul>
-<li>在http块之后，添加一个新的stream块：</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">stream &#123;</span><br><span class="line">    # 配置项添加在这里</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>在stream块内，添加upstream和server配置。例如，以下配置将将请求转发到两个后端服务器，端口分别为192.168.1.10:8080和192.168.1.11:8080：</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">stream &#123;</span><br><span class="line">    upstream my_backend_servers &#123;</span><br><span class="line">        server 192.168.1.10:8080;</span><br><span class="line">        server 192.168.1.11:8080;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    server &#123;</span><br><span class="line">        listen 80;</span><br><span class="line">        proxy_pass my_backend_servers;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>根据您的需求，可以根据需要添加更多的upstream和server块。</li>
-</ul>
-<h2 id="步骤3：重新加载配置"><a href="#步骤3：重新加载配置" class="headerlink" title="步骤3：重新加载配置"></a>步骤3：重新加载配置</h2><hr>
-<p>保存并关闭配置文件后，使用以下命令重新加载Nginx配置：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo nginx -s reload</span><br></pre></td></tr></table></figure>
-
-<h2 id="步骤4：验证代理设置"><a href="#步骤4：验证代理设置" class="headerlink" title="步骤4：验证代理设置"></a>步骤4：验证代理设置</h2><hr>
-<p>现在，您的Nginx已配置为TCP代理。您可以使用telnet工具或其他任何适合您需求的工具来验证代理是否正常工作。</p>
-<p>例如，您可以使用以下命令将请求发送到Nginx代理服务器：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">telnet localhost 80</span><br></pre></td></tr></table></figure>
-
-<p>根据您的实际配置，您可能需要更改”localhost”为相应的IP地址和端口号。</p>
-<h2 id="步骤5：监控和调整配置"><a href="#步骤5：监控和调整配置" class="headerlink" title="步骤5：监控和调整配置"></a>步骤5：监控和调整配置</h2><hr>
-<p>建议您定期监控Nginx的性能，并根据负载情况进行必要的调整。您可以使用Nginx的日志文件、监控工具和系统性能工具来跟踪Nginx的表现并作出相应的改进。</p>
-<p>这就是使用Nginx作为TCP代理的简单指南。通过按照上述步骤，在您的环境中配置Nginx，您可以实现高效的TCP代理服务。</p>
-]]></content>
-      <categories>
-        <category>网络配置</category>
-        <category>性能监控</category>
-        <category>负载均衡</category>
-      </categories>
-      <tags>
-        <tag>nginx</tag>
-        <tag>tcp代理</tag>
-        <tag>配置指南</tag>
-        <tag>负载均衡</tag>
-        <tag>性能监控</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>nginx安装部署</title>
     <url>//post/nginx-installation-deployment-z1jtjzq.html</url>
     <content><![CDATA[<h1 id="nginx安装部署"><a href="#nginx安装部署" class="headerlink" title="nginx安装部署"></a>nginx安装部署</h1><h1 id="nginx安装部署-1"><a href="#nginx安装部署-1" class="headerlink" title="nginx安装部署"></a>nginx安装部署</h1><h2 id="docker部署"><a href="#docker部署" class="headerlink" title="docker部署"></a>docker部署</h2><hr>
@@ -385,5 +336,54 @@
 <h3 id="4、-like-a-是什么"><a href="#4、-like-a-是什么" class="headerlink" title="4、 like-a 是什么"></a>4、 like-a 是什么</h3><p>like-a，顾名思义，像一个，代表组合关系。<br>如果 A like a B，那么 B 就是 A 的接口。<br>新类型有老类型的接口，但还包含其他函数，所以不能说它们完全相同。<br>例如一台手机可以说是一个微型计算机，但是手机的通讯功能显然不是计算机具备的行为，所以手机继承了计算机的特性，同时需要实现通讯功能，而通讯功能需要作为单独接口，而不是计算机的行为。</p>
 <h3 id="5、is-a，has-a，like-a-如何应用"><a href="#5、is-a，has-a，like-a-如何应用" class="headerlink" title="5、is-a，has-a，like-a 如何应用"></a>5、is-a，has-a，like-a 如何应用</h3><p>如果你确定两件对象之间是 is-a 的关系，那么此时你应该使用继承；比如菱形、圆形和方形都是形状的一种，那么他们都应该从形状类继承。<br>如果你确定两件对象之间是 has-a 的关系，那么此时你应该使用聚合；比如电脑是由显示器、CPU、硬盘等组成的，那么你应该把显示器、CPU、硬盘这些类聚合成电脑类。<br>如果你确定两件对象之间是 like-a 的关系，那么此时你应该使用组合；比如空调继承于制冷机，但它同时有加热功能，那么你应该把让空调继承制冷机类，并实现加热接口。</p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>Nginx配置TCP代理指南</title>
+    <url>//post/nginx-configuration-tcp-agency-guide-kqsal.html</url>
+    <content><![CDATA[<h1 id="Nginx配置TCP代理指南"><a href="#Nginx配置TCP代理指南" class="headerlink" title="Nginx配置TCP代理指南"></a>Nginx配置TCP代理指南</h1><h1 id="Nginx配置TCP代理指南-1"><a href="#Nginx配置TCP代理指南-1" class="headerlink" title="Nginx配置TCP代理指南"></a>Nginx配置TCP代理指南</h1><p>使用Nginx作为TCP代理是一种有效的方式，可以实现高性能的负载均衡和反向代理。本篇指南将介绍如何配置Nginx以用作TCP代理。</p>
+<h2 id="步骤1：安装Nginx"><a href="#步骤1：安装Nginx" class="headerlink" title="步骤1：安装Nginx"></a>步骤1：安装Nginx</h2><hr>
+<p>首先，确保您的系统已经安装了Nginx。您可以从Nginx官方网站或适用于您的操作系统的软件包管理器中获取Nginx。</p>
+<h2 id="步骤2：编辑Nginx配置文件"><a href="#步骤2：编辑Nginx配置文件" class="headerlink" title="步骤2：编辑Nginx配置文件"></a>步骤2：编辑Nginx配置文件</h2><hr>
+<p>默认情况下，Nginx的主配置文件位于&#x2F;etc&#x2F;nginx&#x2F;nginx.conf。在继续之前，请备份此文件，并确保具有root权限。</p>
+<p>使用文本编辑器打开nginx.conf文件，并进行以下配置更改：</p>
+<ul>
+<li>在http块之后，添加一个新的stream块：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">stream &#123;</span><br><span class="line">    # 配置项添加在这里</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在stream块内，添加upstream和server配置。例如，以下配置将将请求转发到两个后端服务器，端口分别为192.168.1.10:8080和192.168.1.11:8080：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">stream &#123;</span><br><span class="line">    upstream my_backend_servers &#123;</span><br><span class="line">        server 192.168.1.10:8080;</span><br><span class="line">        server 192.168.1.11:8080;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    server &#123;</span><br><span class="line">        listen 80;</span><br><span class="line">        proxy_pass my_backend_servers;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>根据您的需求，可以根据需要添加更多的upstream和server块。</li>
+</ul>
+<h2 id="步骤3：重新加载配置"><a href="#步骤3：重新加载配置" class="headerlink" title="步骤3：重新加载配置"></a>步骤3：重新加载配置</h2><hr>
+<p>保存并关闭配置文件后，使用以下命令重新加载Nginx配置：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo nginx -s reload</span><br></pre></td></tr></table></figure>
+
+<h2 id="步骤4：验证代理设置"><a href="#步骤4：验证代理设置" class="headerlink" title="步骤4：验证代理设置"></a>步骤4：验证代理设置</h2><hr>
+<p>现在，您的Nginx已配置为TCP代理。您可以使用telnet工具或其他任何适合您需求的工具来验证代理是否正常工作。</p>
+<p>例如，您可以使用以下命令将请求发送到Nginx代理服务器：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">telnet localhost 80</span><br></pre></td></tr></table></figure>
+
+<p>根据您的实际配置，您可能需要更改”localhost”为相应的IP地址和端口号。</p>
+<h2 id="步骤5：监控和调整配置"><a href="#步骤5：监控和调整配置" class="headerlink" title="步骤5：监控和调整配置"></a>步骤5：监控和调整配置</h2><hr>
+<p>建议您定期监控Nginx的性能，并根据负载情况进行必要的调整。您可以使用Nginx的日志文件、监控工具和系统性能工具来跟踪Nginx的表现并作出相应的改进。</p>
+<p>这就是使用Nginx作为TCP代理的简单指南。通过按照上述步骤，在您的环境中配置Nginx，您可以实现高效的TCP代理服务。</p>
+]]></content>
+      <categories>
+        <category>网络配置</category>
+        <category>性能监控</category>
+        <category>负载均衡</category>
+      </categories>
+      <tags>
+        <tag>nginx</tag>
+        <tag>tcp代理</tag>
+        <tag>配置指南</tag>
+        <tag>负载均衡</tag>
+        <tag>性能监控</tag>
+      </tags>
   </entry>
 </search>
