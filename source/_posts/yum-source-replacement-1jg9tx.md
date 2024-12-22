@@ -18,7 +18,13 @@ toc: true
 
 ### 概括
 
-1.备份 2.下载新的CentOs-Base.repo 3.yum makecache生成缓存 4.更换DNS，重启Centos
+1.备份
+
+2.下载新的CentOs-Base.repo
+
+3.yum makecache生成缓存
+
+4.更换DNS，重启Centos
 
 ### 1、备份
 
