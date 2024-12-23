@@ -16,7 +16,7 @@ comments: true
 toc: true
 ---
 
-# 计算机状态
+# 详解计算机状态：从待机到休眠的五种模式
 
 # 计算机状态
 
@@ -38,8 +38,4 @@ toc: true
 
 * **S5**
 
-　　Shutdown。功耗为0。
-
-本文作者：[Jeremy](https://www.cnblogs.com/Gaimo/p/14485298.html)
-
-**本文链接：**  [https://www.cnblogs.com/Gaimo/p/14485298.html](https://www.cnblogs.com/Gaimo/p/14485298.html)
+　　Shutdown。功耗为0。S
