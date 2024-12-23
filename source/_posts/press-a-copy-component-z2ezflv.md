@@ -1,22 +1,14 @@
 ---
 title: 实现点击复制文本功能的Vue组件
 date: '2024-12-23 16:24:35'
-updated: '2024-12-23 16:30:03'
+updated: '2024-12-23 16:49:14'
 excerpt: >-
   本文介绍了如何创建一个名为 `CopyButton.vue` 的 Vue 组件，用于实现点击复制功能。该组件接收一个 `text`
-  prop，表示要复制的内容，并在点击按钮时执行复制操作。主要步骤包括：
-
-
-  1. **创建 `CopyButton.vue` 组件**：定义按钮并实现复制逻辑，支持现代浏览器和旧版浏览器的兼容性。
-
-  2. **在父组件中引入并注册 `CopyButton` 组件**：在表格列的模板中使用 `CopyButton`，传入要复制的文本。
-
-  3. **确保组件和依赖项正确导入**：在父组件中导入 `CopyButton` 和 Element Plus 的组件。
-
-  4. **处理兼容性和国际化**：兼容不同浏览器，并可对消息提示文本进行国际化处理。
-
-
-  通过这些步骤，实现了在表格中点击按钮即可复制指定文本的功能，并提供了成功或失败的提示消息。
+  prop，表示要复制的内容，并在点击按钮时执行复制操作。主要步骤包括：1. **创建 `CopyButton.vue`
+  组件**：定义按钮并实现复制逻辑，支持现代浏览器和旧版浏览器的兼容性。2. **在父组件中引入并注册 `CopyButton`
+  组件**：在表格列的模板中使用 `CopyButton`，传入要复制的文本。3. **确保组件和依赖项正确导入**：在父组件中导入 `CopyButton`
+  和 Element Plus 的组件。4.
+  **处理兼容性和国际化**：兼容不同浏览器，并可对消息提示文本进行国际化处理。通过这些步骤，实现了在表格中点击按钮即可复制指定文本的功能，并提供了成功或失败的提示消息。
 tags:
   - 复制组件
   - vue
@@ -191,9 +183,10 @@ import CopyButton from './CopyButton.vue';
 ```js
 <template>
   <el-button
-    type="text"
+   type="primary"
+    size="small"
     @click="copyToClipboard"
-    icon="DocumentCopy"
+    :icon="DocumentCopy"
     :title="`复制${label}`"
   />
 </template>
