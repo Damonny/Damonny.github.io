@@ -32,7 +32,7 @@ comments: true
 toc: true
 ---
 
-# 点按复制组件
+# 实现点击复制文本功能的Vue组件
 
 思路：
 
@@ -98,9 +98,10 @@ toc: true
 <!-- CopyButton.vue -->
 <template>
   <el-button
-    type="text"
+    type="primary"
+    size="small"
     @click="copyToClipboard"
-    icon="DocumentCopy"
+    :icon="DocumentCopy"
     :title="`复制${label}`"
   />
 </template>
@@ -267,3 +268,9 @@ const tableData = [
 ```
 
 通过以上步骤，我们成功地将点击复制功能提取为一个独立的组件，并在父组件中复用该组件，提高了代码的可维护性和复用性。
+
+#### 最终效果：
+
+​![](https://gh.qptf.eu.org/https://raw.githubusercontent.com/Damonny/blog-img/main/20241223163653.png)​
+
+‍
