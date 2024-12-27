@@ -40,11 +40,11 @@ social:
 # --------------------------------------
 
 # Favicon（網站圖標）
-favicon: https://img.uploads.eu.org/images/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20240709141229-fgdgdgio.png
+favicon: https://gh.qptf.eu.org/https://raw.githubusercontent.com/Damonny/blog-img/main/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20240709141229-fgdgdgio.png
 
 # Avatar (頭像)
 avatar:
-  img: https://img.uploads.eu.org/images/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20240709141229-fgdgdgio.png
+  img: https://gh.qptf.eu.org/https://raw.githubusercontent.com/Damonny/blog-img/main/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20240709141229-fgdgdgio.png
   effect: false
 
 # Disable all banner image
