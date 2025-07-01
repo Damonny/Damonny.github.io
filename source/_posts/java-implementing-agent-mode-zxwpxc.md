@@ -5,6 +5,7 @@ updated: '2024-12-20 00:10:15'
 permalink: /post/java-implementing-agent-mode-zxwpxc.html
 comments: true
 toc: true
+abbrlink: 43440
 ---
 
 # Java实现代理模式

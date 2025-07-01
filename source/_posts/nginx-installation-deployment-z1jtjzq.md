@@ -17,6 +17,7 @@ categories:
 permalink: /post/nginx-installation-deployment-z1jtjzq.html
 comments: true
 toc: true
+abbrlink: 46125
 ---
 
 # nginx安装部署

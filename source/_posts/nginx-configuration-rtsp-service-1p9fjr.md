@@ -17,6 +17,7 @@ categories:
 permalink: /post/nginx-configuration-rtsp-service-1p9fjr.html
 comments: true
 toc: true
+abbrlink: 19461
 ---
 
 # nginx 配置rtsp服务

@@ -19,6 +19,7 @@ categories:
 permalink: /post/springboot-introduces-local-jar-packages-1lmxzy.html
 comments: true
 toc: true
+abbrlink: 13810
 ---
 
 # SpringBoot引入本地Jar包

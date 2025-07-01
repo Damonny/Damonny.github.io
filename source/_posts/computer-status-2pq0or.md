@@ -14,6 +14,7 @@ categories:
 permalink: /post/computer-status-2pq0or.html
 comments: true
 toc: true
+abbrlink: 61463
 ---
 
 # 详解计算机状态：从待机到休眠的五种模式

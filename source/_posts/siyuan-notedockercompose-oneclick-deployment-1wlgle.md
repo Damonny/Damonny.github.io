@@ -18,6 +18,7 @@ categories:
 permalink: /post/siyuan-notedockercompose-oneclick-deployment-1wlgle.html
 comments: true
 toc: true
+abbrlink: 44245
 ---
 
 # 思源笔记-docker-compose一键部署

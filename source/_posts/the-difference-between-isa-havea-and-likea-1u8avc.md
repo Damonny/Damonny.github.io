@@ -5,6 +5,7 @@ updated: '2024-12-20 00:11:26'
 permalink: /post/the-difference-between-isa-havea-and-likea-1u8avc.html
 comments: true
 toc: true
+abbrlink: 53580
 ---
 
 # is-a 、have-a、和 like-a 的区别

@@ -17,6 +17,7 @@ tags:
 permalink: /post/port-occupation-treatment-2ogd9p.html
 comments: true
 toc: true
+abbrlink: 20316
 ---
 
 # 端口占用处理

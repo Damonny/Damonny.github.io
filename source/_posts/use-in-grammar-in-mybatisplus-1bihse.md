@@ -19,6 +19,7 @@ categories:
 permalink: /post/use-in-grammar-in-mybatisplus-1bihse.html
 comments: true
 toc: true
+abbrlink: 42944
 ---
 
 # 在 MyBatis-Plus 中使用 IN 语法

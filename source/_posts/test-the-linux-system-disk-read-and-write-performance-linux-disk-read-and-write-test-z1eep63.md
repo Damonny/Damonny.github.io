@@ -20,6 +20,7 @@ permalink: >-
   /post/test-the-linux-system-disk-read-and-write-performance-linux-disk-read-and-write-test-z1eep63.html
 comments: true
 toc: true
+abbrlink: 54934
 ---
 
 # 测试Linux系统磁盘读写性能（linux磁盘读写测试）

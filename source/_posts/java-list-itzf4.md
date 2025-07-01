@@ -16,6 +16,7 @@ categories:
 permalink: /post/java-list-itzf4.html
 comments: true
 toc: true
+abbrlink: 14367
 ---
 
 # Java List 分片工具类

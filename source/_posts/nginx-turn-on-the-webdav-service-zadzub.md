@@ -26,6 +26,7 @@ categories:
 permalink: /post/nginx-turn-on-the-webdav-service-zadzub.html
 comments: true
 toc: true
+abbrlink: 47927
 ---
 
 # nginx 开启webdav服务

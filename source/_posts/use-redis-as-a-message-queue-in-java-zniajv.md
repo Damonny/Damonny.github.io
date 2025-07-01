@@ -17,6 +17,7 @@ categories:
 permalink: /post/use-redis-as-a-message-queue-in-java-zniajv.html
 comments: true
 toc: true
+abbrlink: 3202
 ---
 
 # Java中使用redis作为消息队列

@@ -6,6 +6,7 @@ permalink: >-
   /post/nacos-configuration-center-and-support-multi-configuration-files-zi2mmf.html
 comments: true
 toc: true
+abbrlink: 42899
 ---
 
 # Nacos配置中心并支持多配置文件

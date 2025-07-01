@@ -22,6 +22,7 @@ categories:
 permalink: /post/asynchronous-operation-after-spring-transaction-operation-z1rhawf.html
 comments: true
 toc: true
+abbrlink: 52682
 ---
 
 # spring事务操作后进行异步操作

@@ -32,6 +32,7 @@ categories:
 permalink: /post/nginx-configuration-tcp-agency-guide-kqsal.html
 comments: true
 toc: true
+abbrlink: 13896
 ---
 
 # Nginx配置TCP代理指南

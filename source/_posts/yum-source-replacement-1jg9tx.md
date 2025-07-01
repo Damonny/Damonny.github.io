@@ -10,6 +10,7 @@ categories:
 permalink: /post/yum-source-replacement-1jg9tx.html
 comments: true
 toc: true
+abbrlink: 30940
 ---
 
 # yum源更换
