@@ -22,8 +22,9 @@ categories:
 permalink: /post/press-a-copy-component-z2ezflv.html
 comments: true
 toc: true
-abbrlink: 30813
 ---
+
+
 
 # 实现点击复制文本功能的Vue组件
 
@@ -265,6 +266,6 @@ const tableData = [
 
 #### 最终效果：
 
-​![](https://gh.qptf.eu.org/https://raw.githubusercontent.com/Damonny/blog-img/main/20241223163653.png)​
+![](https://8715aa8.webp.li/20241223163653.png)
 
 ‍
