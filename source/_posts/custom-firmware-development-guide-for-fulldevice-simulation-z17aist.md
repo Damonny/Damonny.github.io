@@ -53,6 +53,7 @@ categories:
 permalink: /post/custom-firmware-development-guide-for-fulldevice-simulation-z17aist.html
 comments: true
 toc: true
+abbrlink: 36758
 ---
 
 

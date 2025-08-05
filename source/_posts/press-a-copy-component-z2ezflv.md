@@ -22,6 +22,7 @@ categories:
 permalink: /post/press-a-copy-component-z2ezflv.html
 comments: true
 toc: true
+abbrlink: 30813
 ---
 
 

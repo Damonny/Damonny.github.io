@@ -32,6 +32,7 @@ categories:
 permalink: /post/mysql-suffix-matching-problem-vwtyk.html
 comments: true
 toc: true
+abbrlink: 20979
 ---
 
 
