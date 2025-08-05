@@ -27,7 +27,6 @@
     "hexo-renderer-pug": "^3.0.0",
     "hexo-renderer-stylus": "^3.0.1",
     "hexo-server": "^3.0.0",
-    "hexo-theme-matery": "^2.0.1",
     "social-share.js": "^1.0.16"
   }
 }
